@@ -1,0 +1,9 @@
+version: '3'
+services:
+  finagle-client:
+    build: ../finagle-helloworld
+    links:
+      -  finagle-server
+    command: client/run
+  finagle-server:
+    build: ../finagle-helloworld

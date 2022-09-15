@@ -13,7 +13,7 @@ import com.twitter.conversions.DurationOps._
 object Server extends App {
   implicit val timer = new com.twitter.util.JavaTimer()
   val methodPerEndpoint: HelloWorldService.MethodPerEndpoint = 
-    ThriftMux.client.build[HelloWorldService.MethodPerEndpoint]("hello-finagle-server.default.svc.cluster.local:9992")
+    ThriftMux.client.build[HelloWorldService.MethodPerEndpoint]("finagle-server:9992")
 
   val done = new AtomicBoolean(false)
   def callServer(): Future[Unit] = {

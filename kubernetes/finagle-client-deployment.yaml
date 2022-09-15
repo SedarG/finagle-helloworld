@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f ../docker/docker-compose.yml
+    kompose.version: 1.26.1 (a9d05d509)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: finagle-client
+  name: finagle-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: finagle-client
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f ../docker/docker-compose.yml
+        kompose.version: 1.26.1 (a9d05d509)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: finagle-client
+    spec:
+      containers:
+        - args:
+            - client/run
+          image: finagle-client
+          name: finagle-client
+          resources: {}
+      restartPolicy: Always
+status: {}

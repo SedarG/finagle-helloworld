@@ -1,4 +1,4 @@
-# scratch
+# finagle-helloworld
 ## finagle-helloworld
 ### Build instructions
 

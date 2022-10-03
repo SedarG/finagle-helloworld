@@ -8,6 +8,7 @@ metadata:
   labels:
     io.kompose.service: finagle-server
   name: finagle-server
+  namespace: px-finagle
 spec:
   replicas: 1
   selector:
@@ -26,6 +27,8 @@ spec:
       containers:
         - image: finagle-server
           name: finagle-server
+          ports:
+            - containerPort: 9992
           resources: {}
       restartPolicy: Always
 status: {}

@@ -6,9 +6,8 @@
 ```bash
 docker-compose -f docker/docker-compose.yml run finagle-client
 ```
-* The kubernetes manifests are created through kustomize by converting the docker-compose file
+* The kubernetes manifests are created through kustomize by converting the docker-compose file. This will remove the `px-finagle` namespace, which must be updated manually.
 ```bash
-cd docker
-kompose convert
-mv *.yaml ../kubernetes
+cd kubernetes
+kompose convert -f ../docker/docker-compose.yml
 ```

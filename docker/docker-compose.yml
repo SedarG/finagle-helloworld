@@ -7,3 +7,5 @@ services:
     command: client/run
   finagle-server:
     build: ../finagle-helloworld
+    ports:
+      - 9992:9992
